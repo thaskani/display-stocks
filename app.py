@@ -38,13 +38,13 @@ def pipe(tkr):
     if df.empty:
         return f"<h1>check ticker</h1>"
 
-    tkr = get_symbol(tkr)
+    companyName = get_symbol(tkr)
 
     dfJson = df.to_json(orient='split')
-    return render_template('plot2.html', data=dfJson, tkr=tkr)
+    return render_template('plot2.html', data=dfJson, company=companyName, tkr=tkr)
     # return dfJson
 
 
 if __name__ == '__main__':
-    # app.run(debug=True)
-    app.run()
+    app.run(debug=True)
+    # app.run()
