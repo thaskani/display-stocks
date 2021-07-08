@@ -13,7 +13,7 @@ app = Flask(__name__)
 def home():
     if request.method == 'POST':
         ticker = request.form["nm"]
-        return redirect(url_for('pipe', tkr=ticker))
+        return redirect(url_for('pipe', tkr=ticker.upper()))
     else:
         return render_template('index.html')
 
@@ -39,6 +39,7 @@ def pipe(tkr):
         return f"<h1>check ticker</h1>"
 
     companyName = get_symbol(tkr)
+    # companyName = yf.Ticker(tkr).info['longName']
 
     dfJson = df.to_json(orient='split')
     return render_template('plot2.html', data=dfJson, company=companyName, tkr=tkr)

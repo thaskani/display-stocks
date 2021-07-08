@@ -1,9 +1,20 @@
 {% extends 'layout.html' %}
 {% block title %} HOME PAGE {% endblock %}
 {% block content %}
-<form action='#' method='post'>
-    <p> Ticker Name: </p>
+
+<form action="#" method="post">
+  <div class="form-group">
+    <label for="inputTextnputText">Enter Ticker Symbol</label>
+    <input type="text" class="form-control"
+     name="nm" id="inputText" aria-describedby="textHelp" placeholder="Eg: AAPL">
+    <small id="textHelpHelp" class="form-text text-muted">Example: AAPL for apple stocks.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!-- <form action='#' method='post'>
+    <p> Ticker Symbol: </p>
     <p><input type="text" name = "nm"/></p>
     <p><input type="submit" value = "submit"/></p>
-</form>
+</form> -->
 {% endblock %}
